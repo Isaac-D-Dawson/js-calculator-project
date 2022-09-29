@@ -8,12 +8,11 @@
 </head>
 <body>
     <p class="comment">Invoke script</p>
-    <script src="./calculator-app.js"></script>
     <form class="calculator__main">
         <p class="comment">Optional History field?</p>
 
-        Create i/O field
-        <input type="number">
+        Create i/O field (Wrap in header for stickiness?)
+        <input class="calculator__screen" type="number">
 
         button Panel
         7 8 9
@@ -21,18 +20,14 @@
         1 2 3 
         0
         layout
-        <div class="calculator__control">
-            <div class="calculator__numbers">
-                
-            </div>
-            <div class="calculator__operators">
-                
-            </div>
+        <div class="calculator__controls">
+            
         </div>
         Organise settings buttons elsewhere
 
         Design for compactness/Mobile first.
 
     </form>
+    <script src="./calculator-app.js"></script>
 </body>
 </html>
