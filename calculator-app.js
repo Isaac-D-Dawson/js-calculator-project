@@ -33,17 +33,21 @@ const division = (range) => {
     return range.reduce((num, divisor) => num = num / divisor)
 }
 
-const equal = () => { 
-    targetScreen = history.slice(-1)[0].result;
-}
+// const equal = () => { 
+//     targetScreen = history.slice(-1)[0].result;
+// }
 
-const clearAll = () => {
+const clearCurrent = () => {
+    console.log("Clear called:")
     history.push({
                 values  : [0, 0],
             operator    : addition,
             result      : 0
         }
     );
+    console.log(history);
+    currentOperator = addition;
+    calcIO.value    = 0;
 }
 
 
@@ -78,19 +82,18 @@ const mainCallback = (event) => {
     ///finally push back to "Screen"
 
     history.push({
-        values      : [history.slice(-1)[0].result, targetScreen.value/1],    //puses current value and last result into history stack (Div by 1 to force to int).
+        values      : [history.slice(-1)[0].result, targetScreen.value/1],    //pushes current value and last result into history stack (Div by 1 to force to int).
         operator    : currentOperator,
         result      : currentOperator([history.slice(-1)[0].result, targetScreen.value/1])
     })
 
     console.log(history);
 
-    //Doesn't work, We'll need to refactor.
-    //Thinking making history track args+operation instead.
-
     // IDEAS:
     //-history uses callbackfunctions to determine how it displays.
     //Two input boxes, the second of which gets the output.
+
+    targetScreen.value = history.slice(-1)[0].result ?? 0;   
 }
 
 //Create callback that sets all buttons to inactive, and target state to active:
@@ -100,24 +103,25 @@ const setButtonActive = (event) => {
     })
     event.target.classList.add("active");
     //Add in functionality to set operator from this
-    console.log(`current operator is ${currentOperator}`);
+    // console.log(`current operator is ${currentOperator}`);
     event.target.classList.forEach((itemClass) => {
         const validOperators = {"add" : addition,
                                 "sub" : subtraction,
                                 "mul" : multiplication,
-                                "div" : division,
-                                "eql" : equal,
-                                "clr" : clearAll
-                            }
-        currentOperator = (validOperators[itemClass.substring(20)] ?? currentOperator )
+                                "div" : division
+                                // "eql" : equal,   //disabled as it's just a submit.
+                                // "clr" : clearCurrent
+        }
+        currentOperator = (validOperators[itemClass.substring(20)] ?? currentOperator );
     })//console.log(itemClass.substring(20)));
-    console.log(`new operator is ${currentOperator}`);
+    // console.log(`new operator is ${currentOperator}`);
 }
 
 
 //Callback execution:
 
 calcMain.addEventListener("submit", mainCallback);
+calcClr.addEventListener("click", clearCurrent);
 calcButtons.forEach((button) => {
     button.addEventListener("click", setButtonActive);
-})
+});
