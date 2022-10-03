@@ -3,10 +3,113 @@
 //Colors:
 $background__main   : #2a2a2b;
 $background__light  : adjust-color($color: $background__main, $lightness: 50%);
+$text__screen       : adjust-color($color: $background__main, $lightness: -50%);
 
 
 //Main styles:
 
+header {
+    background-color: $background__main;
+    color: wheat;
+}
+
+
+body {
+    //page BG:
+    background-color: adjust-color($color: $background__main, $lightness: 20%);
+
+    .calculator__main {
+        //main calc body
+        background-color: $background__main;
+
+        min-width: 30vw;
+        width: auto;
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        
+        .calculator__screen {
+            width: 80vw;
+            height: 20vh;
+
+            background-color: adjust-color($color: $background__main, $lightness: 50%);
+            font-size: larger;
+        }
+
+        .calculator__controls {
+            min-height: 70vh;
+            width: 80%;
+
+            display: grid;
+            grid-template-areas:    "7      8   9   div"
+                                    "4      5   6   mul"
+                                    "1      2   3   sub"
+                                    "clr    0   eql add";
+            
+            .calculator__button--7 {
+                grid-area: "7";
+            }
+            .calculator__button--6 {
+                grid-area: "8";
+            }
+            .calculator__button--5 {
+                grid-area: "9";
+            }
+            .calculator__button--div {
+                grid-area: "div";
+            }
+            
+            
+            .calculator__button--4 {
+                grid-area: "4";
+            }
+            .calculator__button--5 {
+                grid-area: "5";
+            }
+            .calculator__button--6 {
+                grid-area: "6";
+            }
+            .calculator__button--mul {
+                grid-area: "mul";
+            }
+            
+
+            .calculator__button--3 {
+                grid-area: "3";
+            }
+            .calculator__button--2 {
+                grid-area: "2";
+            }
+            .calculator__button--1 {
+                grid-area: "1";
+            }
+            .calculator__button--sub {
+                grid-area: "sub";
+            }
+
+            
+            .calculator__button--add {
+                grid-area: "add";
+            }
+            .calculator__button--0 {
+                grid-area: "0";
+            }
+            .calculator__button--clr {
+                grid-area: "clr";
+            }
+            .calculator__button--eql {
+                grid-area: "eql";
+            }
+
+            input {
+                border-radius: 20px;
+            }
+        }
+    }
+}
 
 
 //hide my comments:

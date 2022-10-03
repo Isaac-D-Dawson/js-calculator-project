@@ -1,3 +1,85 @@
+header {
+  background-color: #2a2a2b;
+  color: wheat;
+}
+
+body {
+  background-color: #5c5c5f;
+}
+body .calculator__main {
+  background-color: #2a2a2b;
+  min-width: 30vw;
+  width: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+body .calculator__main .calculator__screen {
+  width: 80vw;
+  height: 20vh;
+  background-color: #a9a9ab;
+  font-size: larger;
+}
+body .calculator__main .calculator__controls {
+  min-height: 70vh;
+  width: 80%;
+  display: grid;
+  grid-template-areas: "7      8   9   div" "4      5   6   mul" "1      2   3   sub" "clr    0   eql add";
+}
+body .calculator__main .calculator__controls .calculator__button--7 {
+  grid-area: "7";
+}
+body .calculator__main .calculator__controls .calculator__button--6 {
+  grid-area: "8";
+}
+body .calculator__main .calculator__controls .calculator__button--5 {
+  grid-area: "9";
+}
+body .calculator__main .calculator__controls .calculator__button--div {
+  grid-area: "div";
+}
+body .calculator__main .calculator__controls .calculator__button--4 {
+  grid-area: "4";
+}
+body .calculator__main .calculator__controls .calculator__button--5 {
+  grid-area: "5";
+}
+body .calculator__main .calculator__controls .calculator__button--6 {
+  grid-area: "6";
+}
+body .calculator__main .calculator__controls .calculator__button--mul {
+  grid-area: "mul";
+}
+body .calculator__main .calculator__controls .calculator__button--3 {
+  grid-area: "3";
+}
+body .calculator__main .calculator__controls .calculator__button--2 {
+  grid-area: "2";
+}
+body .calculator__main .calculator__controls .calculator__button--1 {
+  grid-area: "1";
+}
+body .calculator__main .calculator__controls .calculator__button--sub {
+  grid-area: "sub";
+}
+body .calculator__main .calculator__controls .calculator__button--add {
+  grid-area: "add";
+}
+body .calculator__main .calculator__controls .calculator__button--0 {
+  grid-area: "0";
+}
+body .calculator__main .calculator__controls .calculator__button--clr {
+  grid-area: "clr";
+}
+body .calculator__main .calculator__controls .calculator__button--eql {
+  grid-area: "eql";
+}
+body .calculator__main .calculator__controls input {
+  border-radius: 20px;
+}
+
 p.comment {
   display: none;
 }/*# sourceMappingURL=styles-main.css.map */

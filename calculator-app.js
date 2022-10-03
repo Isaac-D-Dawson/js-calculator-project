@@ -69,12 +69,8 @@ const mainCallback = (event) => {
     //test code- we'll igrate functions into their own niches when needed:
     event.preventDefault() //prevent page refresh on submbit.
 
-    const targetScreen = event.target.elements[0];
-    //the submit event barfs out everything it knows:
-    // so grab the first element from that list, pray it's the input (We might have to fix it if it's not)...
-    //... and call value on it.
     
-    console.log(targetScreen.value);  //Later will be dtermined by form data.
+    console.log(calcIO.value);
 
     //Logic:
     //On a submit, we want to write the target value to a history buffer
@@ -82,9 +78,9 @@ const mainCallback = (event) => {
     ///finally push back to "Screen"
 
     history.push({
-        values      : [history.slice(-1)[0].result, targetScreen.value/1],    //pushes current value and last result into history stack (Div by 1 to force to int).
+        values      : [history.slice(-1)[0].result, calcIO.value/1],    //pushes current value and last result into history stack (Div by 1 to force to int).
         operator    : currentOperator,
-        result      : currentOperator([history.slice(-1)[0].result, targetScreen.value/1])
+        result      : currentOperator([history.slice(-1)[0].result, calcIO.value/1])
     })
 
     console.log(history);
@@ -93,7 +89,7 @@ const mainCallback = (event) => {
     //-history uses callbackfunctions to determine how it displays.
     //Two input boxes, the second of which gets the output.
 
-    targetScreen.value = history.slice(-1)[0].result ?? 0;   
+    calcIO.value = history.slice(-1)[0].result ?? 0;   
 }
 
 //Create callback that sets all buttons to inactive, and target state to active:
@@ -113,8 +109,18 @@ const setButtonActive = (event) => {
                                 // "clr" : clearCurrent
         }
         currentOperator = (validOperators[itemClass.substring(20)] ?? currentOperator );
+        
+        // history[history.length -1].values[1] = calcIO.value;
+        // mainCallback(event;
     })//console.log(itemClass.substring(20)));
     // console.log(`new operator is ${currentOperator}`);
+}
+
+const setInputValue = (event) => {
+    if (["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"].includes(event.target.value)) {
+        calcIO.value  = Number.parseInt(`${calcIO.value}${event.target.value}`, 10);
+        console.log(`${calcIO.value}${event.target.value}`);
+    }
 }
 
 
@@ -124,4 +130,5 @@ calcMain.addEventListener("submit", mainCallback);
 calcClr.addEventListener("click", clearCurrent);
 calcButtons.forEach((button) => {
     button.addEventListener("click", setButtonActive);
+    button.addEventListener("click", setInputValue);
 });
