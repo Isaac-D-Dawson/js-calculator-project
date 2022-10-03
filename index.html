@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS-Calculator</title>
+    <link rel="stylesheet" href="./styles-main.css">
 </head>
 <body>
     <p class="comment">Invoke script</p>
@@ -12,29 +13,47 @@
         <p class="comment">Optional History field?</p>
         
         
-        Create i/O field (Would like to make sticky, And move history)
+        <p class="comment">Create i/O field (Would like to make sticky, And move history)</p>
         <input class="calculator__screen" type="number" value="0">
 
-        button Panel
-        7 8 9
-        4 5 6
-        1 2 3 
-        0
-        layout
+        <p class="comment">button Panel</p>
+        <p class="comment">7 8 9</p>
+        <p class="comment">4 5 6</p>
+        <p class="comment">1 2 3 </p>
+        <p class="comment">0</p>
+        <p class="comment">layout</p>
         <div class="calculator__controls">
-            <input class="calculator__button calculator__button--add active" type="button" value="+">
-            <!-- Will use classes to show active button? -->
-            <input class="calculator__button calculator__button--sub " type="button" value="-">
-            <input class="calculator__button calculator__button--mul " type="button" value="x">
-            <input class="calculator__button calculator__button--div " type="button" value="/">
-            <input class="calculator__button calculator__button--eql " type="submit" value="=">
-            <input class="calculator__button calculator__button--clr " type="button" value="C">
+
+            
+            <input class="calculator__button calculator__button--7"     type="button" value="7">
+            <input class="calculator__button calculator__button--8"     type="button" value="8">
+            <input class="calculator__button calculator__button--9"     type="button" value="9">
+            <input class="calculator__button calculator__button--div"   type="button" value="/">
+            
+            
+            <input class="calculator__button calculator__button--4"     type="button" value="4">
+            <input class="calculator__button calculator__button--5"     type="button" value="5">
+            <input class="calculator__button calculator__button--6"     type="button" value="6">
+            <input class="calculator__button calculator__button--mul"   type="button" value="x">
+
+            
+            <input class="calculator__button calculator__button--1"     type="button" value="1">
+            <input class="calculator__button calculator__button--2"     type="button" value="2">
+            <input class="calculator__button calculator__button--3"     type="button" value="3">
+            <input class="calculator__button calculator__button--sub"   type="button" value="-">
+
+            
+            <input class="calculator__button calculator__button--0"             type="button" value="0">
+            <input class="calculator__button calculator__button--add active"    type="button" value="+">
+
+            <input class="calculator__button calculator__button--clr"           type="button" value="C">
+            <input class="calculator__button calculator__button--eql"           type="submit" value="=">
             
 
         </div>
-        Organise settings buttons elsewhere
+        <p class="comment">Organise settings buttons elsewhere</p>
 
-        Design for compactness/Mobile first.
+        <p class="comment">Design for compactness/Mobile first.</p>
 
     </form>
     <script src="./calculator-app.js"></script>

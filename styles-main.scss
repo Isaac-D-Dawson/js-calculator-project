@@ -1,0 +1,15 @@
+// initial pass, will subdivide as we go:
+
+//Colors:
+$background__main   : #2a2a2b;
+$background__light  : adjust-color($color: $background__main, $lightness: 50%);
+
+
+//Main styles:
+
+
+
+//hide my comments:
+p.comment {
+    display: none;
+}
